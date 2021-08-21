@@ -53,7 +53,9 @@ class HashMap:
             current_node = current_ll_value 
             while current_node:
                 if current_node.get_value() != None:
-                    print(current_node.get_value())
+                    lst = current_node.get_value()
+                    print("Design: {}".format(lst[0]))
+                    print("Date and time added: {}".format(lst[-1]))
                 current_node = current_node.get_link()
         else:
             retrieve_collisions = 1
@@ -69,23 +71,39 @@ class HashMap:
                     current_node = new_ll_value 
                     while current_node:
                         if current_node.get_value() != None:
-                            print(current_node.get_value())
+                            lst = current_node.get_value()
+                            print("Design: {}".format(lst[0]))
+                            print("Date and time added: {}".format(lst[-1]))
                         current_node = current_node.get_link()
                 else:
                     retrieve_collisions += 1
                     return 
 
+    def delete(self, key):
+        array_index = self.compressor(self.hash(key))
+        current_array_value = self.array[array_index]
+        current_ll_value = current_array_value.get_head_node()
+        
+        if current_ll_value.get_value() == None:
+            pass
+        elif current_ll_value.get_value()[0] == key:
+            self.array[array_index] = BiLinkedList()
+        else:
+            del_collisions = 1 
+            while current_ll_value.get_value()[0] != key:
+                new_hash_code = self.hash(key, del_collisions)
+                new_array_index = self.compressor(new_hash_code)
+                new_array_value = self.array[new_array_index]
+                new_ll_value = new_array_valeu.get_head_node()
 
-hashmap = HashMap(5)
+                if new_ll_value.get_value() == None:
+                    pass 
+                elif new_ll_value.get_value()[0] == key:
+                    self.array[new_array_index] = BiLinkedList()
+                    return 
+                else:
+                    del_collisions += 1
+                    return 
+        
 
 
-# Logo 1
-hashmap.setter('a', 'b')
-hashmap.setter('a', 'c')
-
-# Logo 2
-hashmap.setter('b', 'c')
-
-
-hashmap.retrieve('a')
-hashmap.retrieve('b')
