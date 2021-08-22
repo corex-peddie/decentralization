@@ -28,5 +28,7 @@ The max amount of website analyses, and designs the user can have saved under th
   Setting the Input under a compressed hashcode `.setter() | /feedback`: `O(1)`
   Retrieving a value from the Hashmap `.retrieve()`: `O(1) | /view_versions`
   Deleting a website or its information from the database `.delete() | /delete`: `O(1)`
+  
+ Run `script.py` for the full experience of the program.
 
  Made in Python 🐍
