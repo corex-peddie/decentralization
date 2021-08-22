@@ -1,5 +1,6 @@
 from HashMap import HashMap
 from datetime import datetime
+from predict import model_prediction
 import time
 
 class Script:
@@ -22,7 +23,8 @@ class Script:
                 design = str(input("Please enter a name for your design: "))
                 current_date = datetime.now().strftime("%m/%d/%y, %H:%M:%S")
                 self.elements.append(design)
-                self.database.setter(design, current_date)
+                web_status = model_prediction()
+                self.database.setter(design, [current_date, web_status])
                 time.sleep(0.2)
                 print("loading...")
                 time.sleep(0.3)
