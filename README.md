@@ -16,6 +16,8 @@ Any other command that does not match the commands above, will result in the pro
 # More Info 📕
 Each entry inputted by the user will be stored under a hashcode. 
 
+*Note*: The Bi-Directional LinkedList is to allow various updates of the same website to be stored instead of replacing them if we were to use a typical array. This allows the user to view all the updates and feedback made by the models.
+
 The hashcodes are created by splitting the input into bytes and summing them. The index for the hashmap to store it under the hashcode it self is calculated by taking the *mod* of the array size.
 
 The max amount of website analyses, and designs the user can have saved under the database is 1000.
