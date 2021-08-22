@@ -55,7 +55,13 @@ class HashMap:
                 if current_node.get_value() != None:
                     lst = current_node.get_value()
                     print("Design: {}".format(lst[0]))
-                    print("Date and time added: {}".format(lst[-1]))
+                    print("Results: ")
+                    print("-"*15)
+                    dictionary = lst[-1][-1]
+                    for user, num in dictionary.items():
+                        print("{user}: {num}".format(user=user, num=num))
+                    print("-"*15)
+                    print("Date and time added: {}".format(lst[-1][0]))
                 current_node = current_node.get_link()
         else:
             retrieve_collisions = 1
